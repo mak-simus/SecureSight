@@ -21,7 +21,7 @@ export default function CameraStrip({ currentCameraId }: { currentCameraId: stri
 
   return (
     <div className="flex gap-2">
-      {thumbnails.map((item) => (
+      {thumbnails && thumbnails.length > 0 && thumbnails.map((item) => (
         <img
           key={item}
           src={item}

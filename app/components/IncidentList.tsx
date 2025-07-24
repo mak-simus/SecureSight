@@ -19,7 +19,8 @@ export default function IncidentList({ onSelect }: { onSelect: (incident: Incide
   return (
     <div className="space-y-4 p-4">
       <h2 className="text-lg font-semibold">Unresolved Incidents</h2>
-      {incidents.map((incident:Incident) => (
+      { incidents && incidents.length > 0 &&
+        incidents.map((incident:Incident) => (
         <div
           key={incident.id}
           className="bg-[#131a2d] p-3 rounded-lg hover:bg-[#1b233a] cursor-pointer"
