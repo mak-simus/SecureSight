@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import IncidentList from "./components/IncidentList";
+import { Incident } from "./types/incident";
+
+
 
 export default function Home() {
-  const [selectedIncident, setSelectedIncident] = useState(null);
+  const [selectedIncident, setSelectedIncident] = useState<Incident | null>(null);
 
   return (
     <div className="flex h-screen">
@@ -13,12 +16,12 @@ export default function Home() {
         <div className="bg-black h-[300px] rounded-md text-gray-400 flex items-center justify-center">
           {selectedIncident ? (
             <video
-              key={(selectedIncident as any).videoUrl}
+              key={selectedIncident.videoUrl}
               controls
               autoPlay
               className="w-full h-full object-contain"
             >
-              <source src={(selectedIncident as any).videoUrl} type="video/mp4" />
+              <source src={selectedIncident.videoUrl} type="video/mp4" />
             </video>
           ) : (
             "Select an incident to preview"

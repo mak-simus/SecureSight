@@ -1,5 +1,6 @@
 // components/IncidentCard.tsx
 import React from 'react';
+import { Incident } from '../types/incident';
 
 const typeColors: Record<string, string> = {
   'Unauthorised Access': 'bg-red-500',
@@ -7,7 +8,7 @@ const typeColors: Record<string, string> = {
   'Face Recognised': 'bg-blue-500',
 };
 
-export default function IncidentCard({ incident, onResolve }: { incident: any, onResolve: () => void }) {
+export default function IncidentCard({ incident, onResolve }: { incident: Incident, onResolve: () => void }) {
   const { type, tsStart, tsEnd, camera, thumbnailUrl } = incident;
   const color = typeColors[type] || 'bg-gray-500';
 

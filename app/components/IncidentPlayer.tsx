@@ -1,7 +1,8 @@
 import React from 'react';
 import CameraStrip from './CameraStrip';
+import { Incident } from '../types/incident';
 
-export default function IncidentPlayer({ incident }: { incident: any }) {
+export default function IncidentPlayer({ incident }: { incident: Incident }) {
     if (!incident) {
         return (
             <div className="h-80 bg-black text-gray-500 flex items-center justify-center rounded-md">

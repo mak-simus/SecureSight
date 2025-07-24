@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import { Incident } from "../types/incident";
 
-export default function IncidentList({ onSelect }: { onSelect: (incident: any) => void }) {
+export default function IncidentList({ onSelect }: { onSelect: (incident: Incident) => void }) {
   const [incidents, setIncidents] = useState([]);
 
   useEffect(() => {
@@ -10,15 +11,15 @@ export default function IncidentList({ onSelect }: { onSelect: (incident: any) =
       .then((data) => setIncidents(data));
   }, []);
 
-  const handleResolve = async (id:number) => {
-    setIncidents((prev) => prev.filter((inc:any) => inc.id !== id));
+  const handleResolve = async (id:string) => {
+    setIncidents((prev) => prev.filter((inc:Incident) => inc.id !== id));
     await fetch(`/api/incidents/${id}/resolve`, { method: "PATCH" });
   };
 
   return (
     <div className="space-y-4 p-4">
       <h2 className="text-lg font-semibold">Unresolved Incidents</h2>
-      {incidents.map((incident:any) => (
+      {incidents.map((incident:Incident) => (
         <div
           key={incident.id}
           className="bg-[#131a2d] p-3 rounded-lg hover:bg-[#1b233a] cursor-pointer"
