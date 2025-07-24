@@ -3,5 +3,5 @@ const nextConfig = {
   
 };
 
-module.exports = require('@netlify/next')(nextConfig);
+module.exports = nextConfig;
 
