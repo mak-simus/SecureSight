@@ -12,8 +12,13 @@ export default function Home() {
         <h1 className="text-white text-lg font-bold mb-4">Incident Player</h1>
         <div className="bg-black h-[300px] rounded-md text-gray-400 flex items-center justify-center">
           {selectedIncident ? (
-            <video controls>
-              <source src="/demo.mp4" type="video/mp4" />
+            <video
+              key={(selectedIncident as any).videoUrl}
+              controls
+              autoPlay
+              className="w-full h-full object-contain"
+            >
+              <source src={(selectedIncident as any).videoUrl} type="video/mp4" />
             </video>
           ) : (
             "Select an incident to preview"

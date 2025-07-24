@@ -22,5 +22,6 @@ model Incident {
   tsStart      DateTime
   tsEnd        DateTime
   thumbnailUrl String
+  videoUrl     String   @default("/videos/sample.mp4")
   resolved     Boolean  @default(false)
 }
