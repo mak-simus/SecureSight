@@ -27,7 +27,7 @@ async function main() {
         tsEnd: new Date("2025-07-21T15:10:00"),
         resolved: false,
         thumbnailUrl: "/thumbnails/thumb2.jpg",
-        videoUrl: "/videos/sample.mp4"
+        videoUrl: "https://eaxmxngkzgvctnwisabu.supabase.co/storage/v1/object/public/secure-sight//sample.mp4"
       },
       {
         cameraId: "cmdetu1uy0002tv54860e9eex",
@@ -36,7 +36,7 @@ async function main() {
         tsEnd: new Date("2025-07-21T16:46:00"),
         resolved: false,
         thumbnailUrl: "/thumbnails/thumb3.jpg",
-        videoUrl: "/videos/sample.mp4"
+        videoUrl: "https://eaxmxngkzgvctnwisabu.supabase.co/storage/v1/object/public/secure-sight//sample2.mp4"
       },
       {
         cameraId: "cmdetu1uy0001tv545r7cdwhj",
@@ -45,7 +45,7 @@ async function main() {
         tsEnd: new Date("2025-07-25T16:46:00"),
         resolved: false,
         thumbnailUrl: "/thumbnails/thumb4.jpg",
-        videoUrl: "/videos/sample.mp4"
+        videoUrl: "https://eaxmxngkzgvctnwisabu.supabase.co/storage/v1/object/public/secure-sight//sample.mp4"
       },
       {
         cameraId: "cmdetu1uy0001tv545r7cdwhj",
@@ -54,7 +54,7 @@ async function main() {
         tsEnd: new Date("2025-07-28T16:46:00"),
         resolved: false,
         thumbnailUrl: "/thumbnails/thumb5.jpg",
-        videoUrl: "/videos/sample.mp4"
+        videoUrl: "https://eaxmxngkzgvctnwisabu.supabase.co/storage/v1/object/public/secure-sight//sample2.mp4"
       }
       // Add 10+ more incidents with realistic timestamps
     ]
