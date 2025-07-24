@@ -3,12 +3,17 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
-  const incidentId = params.id;
-
+export async function PATCH(req: NextRequest) {
   try {
+    const url = new URL(req.url);
+    const id = url.pathname.split("/").pop(); 
+
+    if (!id) {
+      return NextResponse.json({ error: 'Incident ID missing in URL' }, { status: 400 });
+    }
+
     const existingIncident = await prisma.incident.findUnique({
-      where: { id: incidentId },
+      where: { id },
     });
 
     if (!existingIncident) {
@@ -16,7 +21,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     }
 
     const updatedIncident = await prisma.incident.update({
-      where: { id: incidentId },
+      where: { id },
       data: {
         resolved: !existingIncident.resolved,
       },
@@ -27,4 +32,3 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     return NextResponse.json({ error: 'Error updating incident' }, { status: 500 });
   }
 }
-
