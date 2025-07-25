@@ -23,8 +23,13 @@ export async function GET(req: NextRequest) {
     });
 
     return NextResponse.json(incidents);
-  } catch (err: any) {
-    console.error('❌ Error fetching incidents:', err); // This will show in Netlify function logs
-    return NextResponse.json({ error: err.message || 'Unknown error' }, { status: 500 });
+  } catch (err: unknown) {
+    console.error('❌ Error fetching incidents:', err); 
+
+    
+    const message = err instanceof Error ? err.message : 'Unknown error';
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
+
 }
