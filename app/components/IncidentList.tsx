@@ -4,6 +4,7 @@ import { Incident } from "../types/incident";
 
 export default function IncidentList({ onSelect }: { onSelect: (incident: Incident) => void }) {
   const [incidents, setIncidents] = useState([]);
+  const [resolvingId, setResolvingId] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/incidents?resolved=false")
@@ -12,8 +13,10 @@ export default function IncidentList({ onSelect }: { onSelect: (incident: Incide
   }, []);
 
   const handleResolve = async (id:string) => {
-    setIncidents((prev) => prev.filter((inc:Incident) => inc.id !== id));
+    setResolvingId(id);
     await fetch(`/api/incidents/${id}/resolve`, { method: "PATCH" });
+    setIncidents((prev) => prev.filter((inc:Incident) => inc.id !== id));
+    setResolvingId(null);
   };
 
   return (
@@ -39,12 +42,13 @@ export default function IncidentList({ onSelect }: { onSelect: (incident: Incide
               </div>
               <button
                 className="mt-1 text-xs text-blue-400 hover:underline"
+                disabled={resolvingId === incident.id}
                 onClick={(e) => {
                   e.stopPropagation();
                   handleResolve(incident.id);
                 }}
               >
-                Resolve
+                {resolvingId === incident.id ? "Resolving..." : "Resolve"}
               </button>
             </div>
           </div>
