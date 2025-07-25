@@ -24,11 +24,8 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(incidents);
   } catch (err: unknown) {
-    console.error('❌ Error fetching incidents:', err); 
-
-    
+    console.error('❌ Error updating incident:', err);
     const message = err instanceof Error ? err.message : 'Unknown error';
-
     return NextResponse.json({ error: message }, { status: 500 });
   }
 
