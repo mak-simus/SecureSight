@@ -20,17 +20,25 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+1. Deployment Instructions
+   Install Prisma & Client
+   Create a netlify.toml at the root of your project
+   Set Environment Variables in Netlify
+   Create a file: lib/prisma.ts
+   Push Code to GitHub
+   Connect Repo to Netlify
+2. Tech Decisions
+   Used Next.js 15 App Router for full-stack capabilities and modern routing.
+   Chose Supabase (PostgreSQL) for an open-source, scalable backend with real-time support.
+   Integrated Prisma ORM for type-safe and efficient database access.
+   Deployed the project on Netlify for seamless CI/CD and serverless function support.
+   Created API endpoints using Next.js Server Functions under the app/api/ directory.
+   Handled errors safely with type-checked catch (err: unknown) blocks.
+   Implemented Prisma client reuse pattern to avoid connection issues in serverless.
+   Managed sensitive data using .env and Netlify environment variables.
+   (Optional) Used Tailwind CSS for fast, responsive, utility-first styling.
+   Organized code with a modular file-based routing structure and reusable components.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ 3. Would have implemented the additional features.
+    Used a few more visual UI components and tweaks.
+      
