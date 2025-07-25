@@ -6,7 +6,8 @@ const prisma = new PrismaClient();
 export async function PATCH(req: NextRequest) {
   try {
     const url = new URL(req.url);
-    const id = url.pathname.split("/").pop(); 
+    const pathSegments = url.pathname.split("/"); 
+    const id = pathSegments[pathSegments.length - 2];
 
     if (!id) {
       return NextResponse.json({ error: 'Incident ID missing in URL' }, { status: 400 });
