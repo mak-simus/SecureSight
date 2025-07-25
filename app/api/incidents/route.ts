@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'; //next server
+import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -23,7 +23,8 @@ export async function GET(req: NextRequest) {
     });
 
     return NextResponse.json(incidents);
-  } catch (err) {
-    return NextResponse.json({ error: 'Error fetching incidents' }, { status: 500 });
+  } catch (err: any) {
+    console.error('❌ Error fetching incidents:', err); // This will show in Netlify function logs
+    return NextResponse.json({ error: err.message || 'Unknown error' }, { status: 500 });
   }
 }
